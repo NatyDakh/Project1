@@ -44,12 +44,12 @@ def generator(platforms, cat, active):
         for n, j in enumerate(level, start=0):
             for pos in range(3):
                 if j[pos] == '_':
-                    b = blok.Bloc(1200 + pos * 100, 150 * (n / 2 + 1))
+                    b = blok.Bloc(900 + pos * 100, 150 * (n / 2 + 1))
                     platforms.add(b)
                     active.add(b)
-                    dop(active, 1200 + pos * 100, 150 * (n / 2 + 1))
+                    dop(active, 900 + pos * 100, 150 * (n / 2 + 1))
                 if j[pos] == '|':
-                    b = blok.Bloc(1200 + pos * 100 - 15, 150 * ((n - 1) / 2 + 1) + 50, num=2)
+                    b = blok.Bloc(900 + pos * 100 - 15, 150 * ((n - 1) / 2 + 1) + 50, num=2)
                     platforms.add(b)
                     active.add(b)
     active.remove(cat)
