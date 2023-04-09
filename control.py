@@ -20,7 +20,7 @@ def events(cat, screen):
             if event.key == pyg.K_SPACE:
                 cat.change_attack()
         if event.type == pyg.KEYUP:
-            if (event.key == pyg.K_LEFT or event.key == pyg.K_a)and cat.move_x < 0:
+            if (event.key == pyg.K_LEFT or event.key == pyg.K_a) and cat.move_x < 0:
                 cat.stop()
             if (event.key == pyg.K_RIGHT or event.key == pyg.K_d) and cat.move_x > 0:
                 cat.stop()

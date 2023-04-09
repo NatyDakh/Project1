@@ -50,6 +50,7 @@ class Cat(pygame.sprite.Sprite):
                 self.life -= 1
 
     def collide(self, x, y, platforms):
+        """Функция для взаимодействия с платформами"""
         for p in platforms:
             if pygame.sprite.collide_rect(self, p):  # если есть пересечение платформы с игроком
                 if x > 0:  # если движется вправо
@@ -96,9 +97,11 @@ class Cat(pygame.sprite.Sprite):
         self.attack = False
 
     def change_attack(self):
+        """Возведение флага атаки"""
         self.attack = True
 
     def draw_life(self, screen):
+        """Отрисовка жизней"""
         for i in range(self.life):
             life = Life(i * 40 + 10 + i * 5)
             screen.blit(life.image, life.rect)
@@ -124,6 +127,7 @@ class Cat(pygame.sprite.Sprite):
         screen.blit(text1, textRect1)
 
     def no_bonus(self):
+        """Обнуление бонусов через 10 секунд"""
         if time.time() - self.time_start > 10 and self.have_bonus:
             self.speed = 5
             self.bonus = 1

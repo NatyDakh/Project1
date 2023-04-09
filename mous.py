@@ -13,5 +13,6 @@ class Mouse(pygame.sprite.Sprite):
         self.bit = 1
 
     def die(self, cat, active):
+        """Процесс сметри мышенка"""
         cat.total_score += 3
         active.remove(self)

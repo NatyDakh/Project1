@@ -23,6 +23,7 @@ def run():
         active_sprite_list.update(platforms)
         active_sprite_list.draw(screen)
         cat.draw_life(screen)
+        # Процесс передвижения экрана
         if move == 300:
             generator.generator(platforms, cat, active_sprite_list)
             move = 0
