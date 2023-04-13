@@ -1,6 +1,8 @@
-import pygame as pyg, control
-from cat import Cat
-import constant, generator
+import pygame as pyg
+import control
+from Classes.cat import Cat
+import constant
+import generator
 
 
 def run():
@@ -23,6 +25,7 @@ def run():
         active_sprite_list.update(platforms)
         active_sprite_list.draw(screen)
         cat.draw_life(screen)
+        # Процесс передвижения экрана
         if move == 300:
             generator.generator(platforms, cat, active_sprite_list)
             move = 0

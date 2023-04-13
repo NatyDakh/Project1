@@ -1,6 +1,9 @@
 import random
-import blok, mint, milk, mous
-import constant, levels
+from Classes import mous
+from Classes import mint
+from Classes import milk
+from Classes import blok
+import levels
 
 
 def dop(active, x_plat, y_plat):
@@ -28,12 +31,12 @@ def generator(platforms, cat, active):
             for n, j in enumerate(level, start=0):
                 for pos in range(3):
                     if j[pos] == '_':
-                        b = blok.Bloc(i * 300 + pos * 100, 150 * (n/2 + 1))
+                        b = blok.Bloc(i * 300 + pos * 100, 150 * (n / 2 + 1))
                         platforms.add(b)
                         active.add(b)
                         dop(active, i * 300 + pos * 100, 150 * (n/2 + 1))
                     if j[pos] == '|':
-                        b = blok.Bloc(i * 300 + pos * 100 - 15, 150 * ((n - 1)/2 + 1) + 50, num=2)
+                        b = blok.Bloc(i * 300 + pos * 100 - 15, 150 * ((n - 1) / 2 + 1) + 50, num=2)
                         platforms.add(b)
                         active.add(b)
         active.remove(cat)

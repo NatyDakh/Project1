@@ -1,4 +1,5 @@
-import pygame, time
+import pygame
+import time
 import constant
 pygame.font.init()
 
@@ -6,7 +7,7 @@ pygame.font.init()
 class Life(pygame.sprite.Sprite):
     def __init__(self, x):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('grafic/life.png')
+        self.image = pygame.image.load('../grafic/life.png')
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = 0
@@ -16,7 +17,7 @@ class Cat(pygame.sprite.Sprite):
     def __init__(self):
         """Инициализирует кота"""
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('grafic/cat.png')
+        self.image = pygame.image.load('../grafic/cat.png')
         self.rect = self.image.get_rect()
         self.move_x = 0
         self.move_y = 0
@@ -50,6 +51,7 @@ class Cat(pygame.sprite.Sprite):
                 self.life -= 1
 
     def collide(self, x, y, platforms):
+        """Функция для взаимодействия с платформами"""
         for p in platforms:
             if pygame.sprite.collide_rect(self, p):  # если есть пересечение платформы с игроком
                 if x > 0:  # если движется вправо
@@ -96,9 +98,11 @@ class Cat(pygame.sprite.Sprite):
         self.attack = False
 
     def change_attack(self):
+        """Возведение флага атаки"""
         self.attack = True
 
     def draw_life(self, screen):
+        """Отрисовка жизней"""
         for i in range(self.life):
             life = Life(i * 40 + 10 + i * 5)
             screen.blit(life.image, life.rect)
@@ -116,7 +120,7 @@ class Cat(pygame.sprite.Sprite):
 
     def draw_score(self, screen, size, x, y):
         """Рисование счета на экране"""
-        font1 = pygame.font.Font('grafic/segoesc.ttf', size)
+        font1 = pygame.font.Font('../grafic/segoesc.ttf', size)
         text1 = font1.render('Total score: ' + str(self.total_score), True, (0, 0, 0))
         textRect1 = text1.get_rect()
         textRect1.x = x - textRect1.width/2
@@ -124,6 +128,7 @@ class Cat(pygame.sprite.Sprite):
         screen.blit(text1, textRect1)
 
     def no_bonus(self):
+        """Обнуление бонусов через 10 секунд"""
         if time.time() - self.time_start > 10 and self.have_bonus:
             self.speed = 5
             self.bonus = 1

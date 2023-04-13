@@ -1,8 +1,9 @@
-import pygame as pyg, sys
-from mous import Mouse
-from mint import Mint
-from milk import Milk
-from blok import Bloc
+import pygame as pyg
+import sys
+from Classes.mous import Mouse
+from Classes.mint import Mint
+from Classes.milk import Milk
+from Classes.blok import Bloc
 
 
 def events(cat, screen):
@@ -20,7 +21,7 @@ def events(cat, screen):
             if event.key == pyg.K_SPACE:
                 cat.change_attack()
         if event.type == pyg.KEYUP:
-            if (event.key == pyg.K_LEFT or event.key == pyg.K_a)and cat.move_x < 0:
+            if (event.key == pyg.K_LEFT or event.key == pyg.K_a) and cat.move_x < 0:
                 cat.stop()
             if (event.key == pyg.K_RIGHT or event.key == pyg.K_d) and cat.move_x > 0:
                 cat.stop()
