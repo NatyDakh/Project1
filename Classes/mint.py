@@ -1,11 +1,12 @@
-import pygame, time
+import pygame
+import time
 """Описание класса бонусов, 1=двойные монетки, 2=щит, 3=ускорение"""
 
 
 class Mint(pygame.sprite.Sprite):
     def __init__(self, x, y, num=1):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('grafic/mint.png')
+        self.image = pygame.image.load('../grafic/mint.png')
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

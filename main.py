@@ -1,6 +1,8 @@
-import pygame as pyg, control
-from cat import Cat
-import constant, generator
+import pygame as pyg
+import control
+from Classes.cat import Cat
+import constant
+import generator
 
 
 def run():

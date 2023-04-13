@@ -6,9 +6,9 @@ class Bloc(pygame.sprite.Sprite):
         """Инициализирует блок"""
         pygame.sprite.Sprite.__init__(self)
         if num == 1:
-            self.image = pygame.image.load("grafic/bloktype1.png")
+            self.image = pygame.image.load("../grafic/bloktype1.png")
         else:
-            self.image = pygame.image.load("grafic/bloktype2.png")
+            self.image = pygame.image.load("../grafic/bloktype2.png")
         self.rect = self.image.get_rect()
         self.num = num  # тип платформы
         self.rect.x = xloc

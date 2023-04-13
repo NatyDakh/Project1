@@ -1,8 +1,9 @@
-import pygame as pyg, sys
-from mous import Mouse
-from mint import Mint
-from milk import Milk
-from blok import Bloc
+import pygame as pyg
+import sys
+from Classes.mous import Mouse
+from Classes.mint import Mint
+from Classes.milk import Milk
+from Classes.blok import Bloc
 
 
 def events(cat, screen):
