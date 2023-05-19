@@ -6,7 +6,7 @@ import time
 class Mint(pygame.sprite.Sprite):
     def __init__(self, x, y, num=1):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('../grafic/mint.png')
+        self.image = pygame.image.load('C:/Users/natyd/PycharmProjects/Project1/grafic/mint.png')
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

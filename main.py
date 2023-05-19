@@ -20,7 +20,7 @@ def run():
     while True:
         control.events(cat, screen)
         screen.fill(constant.bg_color)
-        control.interaction(active_sprite_list, cat)
+        control.interaction(active_sprite_list, cat, platforms)
         cat.no_bonus()
         active_sprite_list.update(platforms)
         active_sprite_list.draw(screen)

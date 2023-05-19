@@ -7,7 +7,7 @@ pygame.font.init()
 class Life(pygame.sprite.Sprite):
     def __init__(self, x):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('../grafic/life.png')
+        self.image = pygame.image.load('C:/Users/natyd/PycharmProjects/Project1/grafic/life.png')
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = 0
@@ -17,11 +17,11 @@ class Cat(pygame.sprite.Sprite):
     def __init__(self):
         """Инициализирует кота"""
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('../grafic/cat.png')
+        self.image = pygame.image.load('C:/Users/natyd/PycharmProjects/Project1/grafic/cat.png')
         self.rect = self.image.get_rect()
         self.move_x = 0
         self.move_y = 0
-        self.speed = 5
+        self.speed = 3
         self.jump_speed = 12
         self.onGround = False
         self.rect.x = 0
@@ -54,6 +54,8 @@ class Cat(pygame.sprite.Sprite):
         """Функция для взаимодействия с платформами"""
         for p in platforms:
             if pygame.sprite.collide_rect(self, p):  # если есть пересечение платформы с игроком
+                if self.rect.left >= p.rect.right or self.rect.right <= p.rect.left:
+                    self.move_y = 0.95
                 if x > 0:  # если движется вправо
                     self.rect.right = p.rect.right  # то не движется вправо
                 if x < 0:  # если движется влево
@@ -81,7 +83,8 @@ class Cat(pygame.sprite.Sprite):
 
     def jump(self):
         """Обработка прыжка"""
-        self.move_y = -self.jump_speed
+        if self.onGround:
+            self.move_y = -self.jump_speed
 
     def go_right(self):
         """Движение в право"""
@@ -120,7 +123,7 @@ class Cat(pygame.sprite.Sprite):
 
     def draw_score(self, screen, size, x, y):
         """Рисование счета на экране"""
-        font1 = pygame.font.Font('../grafic/segoesc.ttf', size)
+        font1 = pygame.font.Font('C:/Users/natyd/PycharmProjects/Project1/grafic/segoesc.ttf', size)
         text1 = font1.render('Total score: ' + str(self.total_score), True, (0, 0, 0))
         textRect1 = text1.get_rect()
         textRect1.x = x - textRect1.width/2

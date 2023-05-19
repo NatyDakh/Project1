@@ -16,25 +16,26 @@ def events(cat, screen):
                 cat.go_left()
             if event.key == pyg.K_RIGHT or event.key == pyg.K_d:
                 cat.go_right()
-            if event.key == pyg.K_UP or event.key == pyg.K_w:
+            if (event.key == pyg.K_UP or event.key == pyg.K_w):
                 cat.jump()
             if event.key == pyg.K_SPACE:
                 cat.change_attack()
         if event.type == pyg.KEYUP:
-            if (event.key == pyg.K_LEFT or event.key == pyg.K_a) and cat.move_x < 0:
+            if event.key == pyg.K_LEFT or event.key == pyg.K_a:
                 cat.stop()
-            if (event.key == pyg.K_RIGHT or event.key == pyg.K_d) and cat.move_x > 0:
+            if event.key == pyg.K_RIGHT or event.key == pyg.K_d:
                 cat.stop()
             if event.key == pyg.K_SPACE:
                 cat.stop()
+                cat.onGround = True
 
 
-def interaction(active, cat):
+def interaction(active, cat, platforms):
     """Взаймодействие между объектами"""
     enemise = pyg.sprite.spritecollide(cat, active, False)
     for i in enemise:
         if type(i) == Bloc:
-            continue
+            cat.update(platforms)
         if type(i) == Milk:
             active.remove(i)
             cat.total_score += i.score * cat.bonus
